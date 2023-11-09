@@ -13,7 +13,7 @@ package dev.unexist.showcase.todo.infrastructure
 
 import dev.unexist.showcase.todo.domain.Todo
 
-class TodoRepository {
+class TodoListRepository {
     companion object {
         private val todos: MutableList<Todo> = ArrayList()
 

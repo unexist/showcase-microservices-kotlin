@@ -12,7 +12,7 @@
 package dev.unexist.showcase.todo.adapter
 
 import dev.unexist.showcase.todo.domain.Todo
-import dev.unexist.showcase.todo.infrastructure.TodoRepository
+import dev.unexist.showcase.todo.infrastructure.TodoListRepository
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.Application
 import io.ktor.server.application.call
@@ -65,23 +65,23 @@ fun Application.main() {
 
     routing {
         get("/todo") {
-            call.respond(message = TodoRepository.getAll())
+            call.respond(message = TodoListRepository.getAll())
         }
 
         get("/todo/{id}") {
             val id: String? = call.parameters["id"]
 
             if (null != id)
-                call.respond(message = TodoRepository.getAll()
+                call.respond(message = TodoListRepository.getAll()
                     .first { it.id == id.toInt() })
         }
 
         post("/todo") {
             var todo: Todo = call.receive()
 
-            todo.id = TodoRepository.getAll().size + 1
+            todo.id = TodoListRepository.getAll().size + 1
 
-            TodoRepository.add(todo)
+            TodoListRepository.add(todo)
             call.respond(message = todo)
         }
     }
