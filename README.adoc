@@ -1,0 +1,11 @@
+= Showcase for microservices on Kotlin
+
+This project holds a showcase for Golang related things.
+
+== todo-service-ktor
+
+Small implementation based on Ktor, 3-Layer and DI (Dependency Inversion + Dependency Injection)
+
+== Links
+
+- https://ktor.io/
