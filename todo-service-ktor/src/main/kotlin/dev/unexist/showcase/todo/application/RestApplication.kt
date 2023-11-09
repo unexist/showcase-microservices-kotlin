@@ -24,6 +24,8 @@ fun main(args: Array<String>) {
     val logger = KotlinLogging.logger {}
 
     val server = embeddedServer(Netty, commandLineEnvironment(args))
+
+    /* Consul */
     val service = ImmutableRegistration.builder()
             .id("todo-${server.environment.connectors[0].port}")
             .name("todo-service")
@@ -31,7 +33,6 @@ fun main(args: Array<String>) {
             .port(server.environment.connectors[0].port)
             .build()
 
-    /* Consul */
     try {
         val consulClient = Consul.builder().withUrl("http://localhost:8500").build()
 
