@@ -16,3 +16,9 @@ todo:
 
 list:
 	@curl -X 'GET' 'http://localhost:8080/todo' -H 'accept: */*' | jq .
+
+build:
+	mvn package
+
+run:
+	java -jar target/todo-service-ktor-0.1-jar-with-dependencies.jar
