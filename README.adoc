@@ -1,6 +1,6 @@
 = Showcase for microservices on Kotlin
 
-This project holds a showcase for Golang related things.
+This project holds a showcase for Kotlin related things.
 
 == todo-service-ktor
 
