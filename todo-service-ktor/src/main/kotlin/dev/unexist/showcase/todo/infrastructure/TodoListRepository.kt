@@ -1,7 +1,7 @@
 /**
- * @package Showcase
+ * @package Showcase-Microservices-Kotlin
  *
- * @file
+ * @file Todo list repository
  * @copyright 2023-present Christoph Kappel <christoph@unexist.dev>
  * @version $Id$
  *

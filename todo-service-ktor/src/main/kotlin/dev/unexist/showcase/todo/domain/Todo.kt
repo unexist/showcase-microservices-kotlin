@@ -1,7 +1,7 @@
 /**
  * @package Showcase-Microservices-Kotlin
  *
- * @file
+ * @file Todo class
  * @copyright 2023-present Christoph Kappel <christoph@unexist.dev>
  * @version $Id$
  *
