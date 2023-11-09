@@ -12,12 +12,17 @@
 package dev.unexist.showcase.todo.application
 
 import com.orbitz.consul.Consul
+import com.orbitz.consul.ConsulException
 import com.orbitz.consul.model.agent.ImmutableRegistration
+import io.github.oshai.kotlinlogging.KotlinLogging
 import io.ktor.server.engine.commandLineEnvironment
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
+import java.net.ConnectException
 
 fun main(args: Array<String>) {
+    val logger = KotlinLogging.logger {}
+
     val server = embeddedServer(Netty, commandLineEnvironment(args))
     val service = ImmutableRegistration.builder()
             .id("todo-${server.environment.connectors[0].port}")
@@ -27,9 +32,17 @@ fun main(args: Array<String>) {
             .build()
 
     /* Consul */
-    val consulClient = Consul.builder().withUrl("http://localhost:8500").build()
+    try {
+        val consulClient = Consul.builder().withUrl("http://localhost:8500").build()
 
-    consulClient.agentClient().register(service)
+        consulClient.agentClient().register(service)
+    } catch (ex: Exception) {
+        when (ex) {
+            is ConnectException, is ConsulException -> {
+                logger.error(ex) { "Connect to Consul failed: $ex" }
+            }
+        }
+    }
 
     server.start(wait = true)
 }
