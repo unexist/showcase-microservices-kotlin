@@ -9,3 +9,5 @@ Small implementation based on Ktor, 3-Layer and DI (Dependency Inversion + Depen
 == Links
 
 - https://ktor.io/
+- https://github.com/oshai/kotlin-logging
+- https://www.consul.io/
