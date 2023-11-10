@@ -11,6 +11,7 @@
 
 package dev.unexist.showcase.todo.domain
 
+import cucumber.api.PendingException
 import cucumber.api.java8.En
 
 var todo: Todo? = null
@@ -25,11 +26,12 @@ class TodoSteps : En {
             todo!!.title = title
         }
 
-        And("its description is {string}") { description: String ->
+        And("its description is {word}") { description: String ->
             todo!!.description = description
         }
 
-        Then("^its id should be {int}$") { id: Int ->
+        Then("^its id should be {int}$") { _: Int ->
+            throw PendingException("Not implemented yet")
         }
     }
 }
