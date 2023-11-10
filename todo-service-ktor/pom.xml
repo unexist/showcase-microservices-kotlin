@@ -36,9 +36,11 @@
         <ktor.version>2.3.6</ktor.version>
         <logback-classic.version>1.4.11</logback-classic.version>
         <consul-client.version>1.5.3</consul-client.version>
-        <junit.version>4.13.2</junit.version>
-        <maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
         <kotlin-logging-jvm.version>5.1.0</kotlin-logging-jvm.version>
+
+        <maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
+
+        <cucumber.version>2.3.1</cucumber.version>
     </properties>
 
     <licenses>
@@ -133,6 +135,19 @@
             <groupId>io.ktor</groupId>
             <artifactId>ktor-server-test-host-jvm</artifactId>
             <version>${ktor.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java8</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
