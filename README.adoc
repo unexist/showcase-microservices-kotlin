@@ -9,5 +9,8 @@ Small implementation based on Ktor, 3-Layer and DI (Dependency Inversion + Depen
 == Links
 
 - https://ktor.io/
+- https://ktor.io/docs/testing.html
 - https://github.com/oshai/kotlin-logging
 - https://www.consul.io/
+- https://github.com/mlvandijk/kukumber-skeleton
+- https://cucumber.io/docs/installation/kotlin/
