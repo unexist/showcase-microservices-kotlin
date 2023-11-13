@@ -1,5 +1,5 @@
 /**
- * @package Showcase-Hadoop-CDC-Quarkus
+ * @package Showcase-Microservices-Kotlin
  *
  * @file Stupid integration test
  * @copyright 2023-present Christoph Kappel <christoph@unexist.dev>
@@ -12,17 +12,16 @@
 package dev.unexist.showcase.todo.application;
 
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.RestAssured.given
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.given;
-
 @QuarkusTest
-public class TodoResourceTest {
+class TodoResourceTest {
 
     @Test
-    public void shouldGetEmptyResult() {
+    fun shouldGetEmptyResult() {
         given()
-          .when().get("/todo")
+          .get("/todo")
           .then()
              .statusCode(204);
     }

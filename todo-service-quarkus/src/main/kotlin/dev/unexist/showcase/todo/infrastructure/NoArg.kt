@@ -1,9 +1,9 @@
 package dev.unexist.showcase.todo.infrastructure
 
 /**
- * @package Showcase
+ * @package Showcase-Microservices-Kotlin
  *
- * @file
+ * @file Marker annotation
  * @copyright 2023-present Christoph Kappel <christoph@unexist.dev>
  * @version $Id$
  *
