@@ -4,6 +4,10 @@ This project holds a showcase for Kotlin related things.
 
 == todo-service-ktor
 
+Small implementation based on Ktor
+
+== todo-service-quarkus
+
 Small implementation based on Ktor, 3-Layer and DI (Dependency Inversion + Dependency Injection)
 
 == Links
