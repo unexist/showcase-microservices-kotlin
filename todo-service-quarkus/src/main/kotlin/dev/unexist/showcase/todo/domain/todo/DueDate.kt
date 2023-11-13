@@ -29,6 +29,6 @@ data class DueDate(
     val due: LocalDate) {
 
     companion object {
-        const val DATE_PATTERN = "yyyy-MM-dd";
+        const val DATE_PATTERN = "yyyy-MM-dd"
     }
 }
