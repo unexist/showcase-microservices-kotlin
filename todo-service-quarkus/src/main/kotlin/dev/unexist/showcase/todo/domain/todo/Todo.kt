@@ -1,5 +1,5 @@
 /**
- * @package Showcase-Hadoop-CDC-Quarkus
+ * @package Showcase-Microservices-Kotlin
  *
  * @file Todo class and aggregate root
  * @copyright 2023-present Christoph Kappel <christoph@unexist.dev>
@@ -11,27 +11,12 @@
 
 package dev.unexist.showcase.todo.domain.todo;
 
-import java.util.Objects;
-
-public class Todo extends TodoBase {
-    private int id;
-
-    /**
-     * Constructor
-     **/
-
-    public Todo() {
-    }
-
-    /**
-     * Constructor
-     *
-     * @param  base  Base entry
-     **/
-
-    public Todo(final TodoBase base) {
-        this.update(base);
-    }
+data class Todo(
+    var id: Int = 0,
+    override var title: String = "",
+    override var description: String = "",
+    override var done: Boolean = false,
+    override var dueDate: DueDate? = null) : TodoBase(title, description, done, dueDate) {
 
     /**
      * Update values from base
@@ -39,49 +24,13 @@ public class Todo extends TodoBase {
      * @param  base  Todo base class
      **/
 
-    public void update(final TodoBase base) {
-        this.setTitle(base.getTitle());
-        this.setDescription(base.getDescription());
-        this.setDone(base.getDone());
+    fun update(base: TodoBase) {
+        this.title = base.title
+        this.description = base.description
+        this.done = base.done
 
-        if (null != base.getDueDate()) {
-            this.setDueDate(base.getDueDate());
+        if (null != base.dueDate) {
+            this.dueDate = base.dueDate
         }
-    }
-
-    /**
-     * Get id of entry
-     *
-     * @return Id of the entry
-     **/
-
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Set id of entry
-     *
-     * @param  id  Id of the entry
-     **/
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        Todo todo = (Todo) o;
-
-        return id == todo.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), id);
     }
 }

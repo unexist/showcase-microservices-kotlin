@@ -31,8 +31,7 @@ class DateSerializer : JsonSerializer<LocalDate>() {
      * @throws IOException
      **/
 
-    override fun serialize(value: LocalDate?, gen: JsonGenerator?,
-                          serializers: SerializerProvider?) {
+    override fun serialize(value: LocalDate?, gen: JsonGenerator?, serializers: SerializerProvider?) {
         if (null != gen && null != value) {
             gen.writeString(value.format(DateTimeFormatter.ofPattern(DueDate.DATE_PATTERN)))
         }

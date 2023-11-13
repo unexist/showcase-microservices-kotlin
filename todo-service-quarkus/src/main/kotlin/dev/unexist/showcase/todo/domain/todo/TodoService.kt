@@ -1,5 +1,5 @@
 /**
- * @package Showcase-Hadoop-CDC-Quarkus
+ * @package Showcase-Microservices-Kotlin
  *
  * @file Todo domain service
  * @copyright 2023-present Christoph Kappel <christoph@unexist.dev>
@@ -11,18 +11,12 @@
 
 package dev.unexist.showcase.todo.domain.todo;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
-import java.util.List;
-import java.util.Optional;
+import jakarta.enterprise.context.ApplicationScoped
+import jakarta.inject.Inject
+import java.util.Optional
 
 @ApplicationScoped
-public class TodoService {
-
-    @Inject
-    @Named("hadoop_plain")
-    TodoRepository todoRepository;
+class TodoService(@field:Inject var todoRepository: TodoRepository) {
 
     /**
      * Create new {@link Todo} entry and store it in repository
@@ -32,12 +26,14 @@ public class TodoService {
      * @return Either id of the entry on success; otherwise {@code -1}
      **/
 
-    public Optional<Todo> create(TodoBase base) {
-        Todo todo = new Todo(base);
+    fun create(base: TodoBase): Optional<Todo> {
+        val todo: Todo = Todo()
 
-        boolean retval = this.todoRepository.add(todo);
+        todo.update(base);
 
-        return Optional.ofNullable(retval ? todo : null);
+        val retval = this.todoRepository.add(todo);
+
+        return Optional.ofNullable(if (retval) todo else null)
     }
 
     /**
@@ -49,9 +45,10 @@ public class TodoService {
      * @return Either {@code true} on success; otherwise {@code false}
      **/
 
-    public boolean update(int id, TodoBase base) {
-        Optional<Todo> todo = this.findById(id);
-        boolean ret = false;
+    fun update(id: Int, base: TodoBase): Boolean {
+        val todo: Optional<Todo> = this.findById(id)
+
+        var ret = false;
 
         if (todo.isPresent()) {
             todo.get().update(base);
@@ -70,7 +67,7 @@ public class TodoService {
      * @return Either {@code true} on success; otherwise {@code false}
      **/
 
-    public boolean delete(int id) {
+    fun delete(id: Int): Boolean {
         return this.todoRepository.deleteById(id);
     }
 
@@ -80,7 +77,7 @@ public class TodoService {
      * @return List of all {@link Todo}; might be empty
      **/
 
-    public List<Todo> getAll() {
+    fun getAll(): List<Todo> {
         return this.todoRepository.getAll();
     }
 
@@ -92,7 +89,7 @@ public class TodoService {
      * @return A {@link Optional} of the entry
      **/
 
-    public Optional<Todo> findById(int id) {
+    fun findById(id: Int): Optional<Todo> {
         return this.todoRepository.findById(id);
     }
 }

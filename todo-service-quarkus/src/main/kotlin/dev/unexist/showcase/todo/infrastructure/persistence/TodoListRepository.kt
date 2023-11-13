@@ -9,18 +9,57 @@
  * See the file LICENSE for details.
  **/
 
-package dev.unexist.showcase.todo.infrastructure
+package dev.unexist.showcase.todo.infrastructure.persistence
 
-import dev.unexist.showcase.todo.domain.Todo
+import dev.unexist.showcase.todo.domain.todo.Todo
+import dev.unexist.showcase.todo.domain.todo.TodoRepository
+import io.github.oshai.kotlinlogging.KotlinLogging
+import java.util.Collections
+import java.util.Optional
 
-class TodoListRepository {
-    companion object {
-        private val todos: MutableList<Todo> = ArrayList()
+class TodoListRepository(val list: MutableList<Todo> = ArrayList()) : TodoRepository {
+    val logger = KotlinLogging.logger {}
 
-        fun add(account: Todo) {
-            todos.add(account)
+    override fun add(todo: Todo): Boolean {
+        todo.id = this.list.size + 1
+
+        return this.list.add(todo)
+    }
+
+    override fun update(todo: Todo): Boolean {
+        var ret = false
+
+        try {
+            list[todo.id] = todo
+            ret = true
+        } catch (e: IndexOutOfBoundsException) {
+            logger.warn("update: id={} not found", todo.id)
         }
 
-        fun getAll() = todos
+        return ret
+    }
+
+    override fun deleteById(id: Int): Boolean {
+        var ret = false
+
+        try {
+            list.removeAt(id)
+
+            ret = true
+        } catch (e: IndexOutOfBoundsException) {
+            logger.warn("deleteById: id={} not found", id)
+        }
+
+        return ret
+    }
+
+    override fun getAll(): MutableList<Todo> {
+        return Collections.unmodifiableList(list)
+    }
+
+    override fun findById(id: Int): Optional<Todo> {
+        return list.stream()
+            .filter { (id1): Todo -> id1 == id }
+            .findFirst()
     }
 }

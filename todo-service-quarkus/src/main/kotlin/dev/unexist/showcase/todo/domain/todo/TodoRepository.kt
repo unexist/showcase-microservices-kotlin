@@ -43,7 +43,7 @@ interface TodoRepository {
      * @return Either {@code true} on success; otherwise {@code false}
      **/
 
-    fun deleteById(id: Int)
+    fun deleteById(id: Int): Boolean
 
     /**
      * Get all {@link Todo} entries
