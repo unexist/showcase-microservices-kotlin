@@ -25,6 +25,10 @@
         <!-- Build -->
         <sourceDirectory>src/main/kotlin</sourceDirectory>
         <testSourceDirectory>src/test/kotlin</testSourceDirectory>
+
+        <!-- Kotlin -->
+        <kotlin.version>1.9.20</kotlin.version>
+        <kotlin-logging-jvm.version>5.1.0</kotlin-logging-jvm.version>
     </properties>
 
     <licenses>

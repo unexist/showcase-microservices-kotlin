@@ -70,10 +70,12 @@
             <artifactId>quarkus-junit5-mockito</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- Logging -->
         <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-test-common</artifactId>
-            <scope>test</scope>
+          <groupId>io.github.oshai</groupId>
+          <artifactId>kotlin-logging-jvm</artifactId>
+          <version>${kotlin-logging-jvm.version}</version>
         </dependency>
 
         <!-- Testing -->
@@ -95,6 +97,17 @@
             <version>1.10.19</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib-jdk8</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-test</artifactId>
+            <version>${kotlin.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -106,15 +119,29 @@
                 <executions>
                     <execution>
                         <id>compile</id>
+                        <phase>compile</phase>
                         <goals>
                             <goal>compile</goal>
                         </goals>
+                        <configuration>
+                            <sourceDirs>
+                                <source>target/generated-sources/annotations</source>
+                                <source>src/main/kotlin</source>
+                            </sourceDirs>
+                        </configuration>
                     </execution>
                     <execution>
                         <id>test-compile</id>
+                        <phase>test-compile</phase>
                         <goals>
                             <goal>test-compile</goal>
                         </goals>
+                        <configuration>
+                            <sourceDirs>
+                                <source>target/generated-test-sources/test-annotations</source>
+                                <source>src/test/kotlin</source>
+                            </sourceDirs>
+                        </configuration>
                     </execution>
                 </executions>
                 <configuration>
@@ -126,6 +153,7 @@
                         <!-- Each annotation is placed on its own line -->
                         <option>all-open:annotation=jakarta.ws.rs.Path</option>
                     </pluginOptions>
+                    <jvmTarget>1.8</jvmTarget>
                 </configuration>
 
                 <dependencies>
