@@ -14,18 +14,8 @@
     </parent>
 
     <properties>
-        <!-- Project -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
         <!-- Maven -->
-        <maven.compiler.parameters>true</maven.compiler.parameters>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
-
-        <!-- Workaround to get a proper timestamp -->
-        <timestamp>${maven.build.timestamp}</timestamp>
+        <maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
 
         <!-- Build -->
         <java.version>21</java.version>
@@ -37,26 +27,8 @@
         <logback-classic.version>1.4.11</logback-classic.version>
         <consul-client.version>1.5.3</consul-client.version>
         <kotlin-logging-jvm.version>5.1.0</kotlin-logging-jvm.version>
-
-        <maven-assembly-plugin.version>2.6</maven-assembly-plugin.version>
-
         <cucumber.version>2.3.1</cucumber.version>
     </properties>
-
-    <licenses>
-        <license>
-            <name>Apache License v2.0</name>
-            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <id>unexist</id>
-            <organization>unexist.dev</organization>
-        </developer>
-    </developers>
 
     <dependencies>
         <!-- Kotlin -->
@@ -117,7 +89,7 @@
             <version>${consul-client.version}</version>
         </dependency>
 
-        <!-- Test -->
+        <!-- Testing -->
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-test-junit</artifactId>
@@ -153,9 +125,6 @@
     </dependencies>
 
     <build>
-        <sourceDirectory>src/main/kotlin</sourceDirectory>
-        <testSourceDirectory>src/test/kotlin</testSourceDirectory>
-
         <plugins>
             <plugin>
                 <groupId>org.jetbrains.kotlin</groupId>
