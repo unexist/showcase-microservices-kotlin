@@ -1,5 +1,5 @@
 /**
- * @package Showcase-Hadoop-CDC-Quarkus
+ * @package Showcase-Microservices-Kotlin
  *
  * @file Todo deserializer
  * @copyright 2023-present Christoph Kappel <christoph@unexist.dev>
@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class DateDeserializer extends JsonDeserializer<LocalDate> {
+class DateDeserializer : JsonDeserializer<LocalDate>() {
 
     /**
      * Deserialize {@link LocalDate} from string
@@ -31,10 +31,14 @@ public class DateDeserializer extends JsonDeserializer<LocalDate> {
      * @throws IOException
      */
 
-    @Override
-    public LocalDate deserialize(JsonParser parser,
-                                 DeserializationContext context) throws IOException {
-        return LocalDate.from(DateTimeFormatter.ofPattern(DueDate.DATE_PATTERN)
-                .parse(parser.getText()));
+    override fun deserialize(parser: JsonParser?, context: DeserializationContext?): LocalDate? {
+        var retVal: LocalDate? = null;
+
+        if (null != parser) {
+            retVal = LocalDate.from(DateTimeFormatter.ofPattern(DueDate.DATE_PATTERN)
+                .parse(parser.text))
+        }
+
+        return retVal;
     }
 }

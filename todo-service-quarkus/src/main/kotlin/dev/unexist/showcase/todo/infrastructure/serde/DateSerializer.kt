@@ -1,5 +1,5 @@
 /**
- * @package Showcase-Hadoop-CDC-Quarkus
+ * @package Showcase-Microservices-Kotlin
  *
  * @file Todo serializer
  * @copyright 2023-present Christoph Kappel <christoph@unexist.dev>
@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class DateSerializer extends JsonSerializer<LocalDate> {
+class DateSerializer : JsonSerializer<LocalDate>() {
 
     /**
      * Serialize {@link LocalDate} to format
@@ -31,9 +31,10 @@ public class DateSerializer extends JsonSerializer<LocalDate> {
      * @throws IOException
      **/
 
-    @Override
-    public void serialize(LocalDate value, JsonGenerator gen,
-                          SerializerProvider serializers) throws IOException {
-        gen.writeString(value.format(DateTimeFormatter.ofPattern(DueDate.DATE_PATTERN)));
+    override fun serialize(value: LocalDate?, gen: JsonGenerator?,
+                          serializers: SerializerProvider?) {
+        if (null != gen && null != value) {
+            gen.writeString(value.format(DateTimeFormatter.ofPattern(DueDate.DATE_PATTERN)))
+        }
     }
 }
