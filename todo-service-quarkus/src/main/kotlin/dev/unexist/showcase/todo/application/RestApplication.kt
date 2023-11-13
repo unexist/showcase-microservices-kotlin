@@ -1,5 +1,5 @@
 /**
- * @package Showcase-Hadoop-CDC-Quarkus
+ * @package Showcase-Microservices-Kotlin
  *
  * @file Todo application
  * @copyright 2023-present Christoph Kappel <christoph@unexist.dev>
@@ -11,7 +11,7 @@
 
 package dev.unexist.showcase.todo.application;
 
-import javax.ws.rs.core.Application;
+import jakarta.ws.rs.core.Application
 
-public class RestApplication extends Application {
+class RestApplication : Application() {
 }

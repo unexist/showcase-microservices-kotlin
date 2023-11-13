@@ -1,5 +1,5 @@
 /**
- * @package Showcase-Hadoop-CDC-Quarkus
+ * @package Showcase-Microservices-Kotlin
  *
  * @file Todo repository interface
  * @copyright 2023-present Christoph Kappel <christoph@unexist.dev>
@@ -11,10 +11,9 @@
 
 package dev.unexist.showcase.todo.domain.todo;
 
-import java.util.List;
 import java.util.Optional;
 
-public interface TodoRepository {
+interface TodoRepository {
 
     /**
      * Add {@link Todo} entry to list
@@ -24,7 +23,7 @@ public interface TodoRepository {
      * @return Either {@code true} on success; otherwise {@code false}
      **/
 
-    boolean add(Todo todo);
+    fun add(todo: Todo): Boolean
 
     /**
      * Update {@link Todo} with given id
@@ -34,7 +33,7 @@ public interface TodoRepository {
      * @return Either {@code true} on success; otherwise {@code false}
      **/
 
-    boolean update(Todo todo);
+    fun update(todo: Todo): Boolean
 
     /**
      * Delete {@link Todo} with given id
@@ -44,7 +43,7 @@ public interface TodoRepository {
      * @return Either {@code true} on success; otherwise {@code false}
      **/
 
-    boolean deleteById(int id);
+    fun deleteById(id: Int)
 
     /**
      * Get all {@link Todo} entries
@@ -52,7 +51,7 @@ public interface TodoRepository {
      * @return List of all stored {@link Todo}
      **/
 
-    List<Todo> getAll();
+    fun getAll(): MutableList<Todo>
 
     /**
      * Find {@link Todo} by given id
@@ -62,5 +61,5 @@ public interface TodoRepository {
      * @return A {@link Optional} with the result of the lookup
      **/
 
-    Optional<Todo> findById(int id);
+    fun findById(id: Int): Optional<Todo>
 }
