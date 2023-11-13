@@ -37,6 +37,10 @@
     <dependencies>
         <!-- Quarkus -->
         <dependency>
+           <groupId>io.quarkus</groupId>
+           <artifactId>quarkus-kotlin</artifactId>
+        </dependency>
+        <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-jsonp</artifactId>
         </dependency>
@@ -111,6 +115,9 @@
     </dependencies>
 
     <build>
+        <sourceDirectory>src/main/kotlin</sourceDirectory>
+        <testSourceDirectory>src/test/kotlin</testSourceDirectory>
+
         <plugins>
             <plugin>
                 <artifactId>kotlin-maven-plugin</artifactId>
@@ -147,11 +154,15 @@
                 <configuration>
                     <compilerPlugins>
                         <plugin>all-open</plugin>
+                        <plugin>no-arg</plugin>
                     </compilerPlugins>
 
                     <pluginOptions>
-                        <!-- Each annotation is placed on its own line -->
                         <option>all-open:annotation=jakarta.ws.rs.Path</option>
+                        <option>all-open:annotation=javax.enterprise.context.ApplicationScoped</option>
+                        <option>all-open:annotation=io.quarkus.test.junit.QuarkusTest</option>
+
+                        <option>no-arg:annotation=dev.unexist.showcase.todo.infrastructure.NoArg</option>
                     </pluginOptions>
                     <jvmTarget>1.8</jvmTarget>
                 </configuration>
@@ -160,6 +171,11 @@
                     <dependency>
                         <groupId>org.jetbrains.kotlin</groupId>
                         <artifactId>kotlin-maven-allopen</artifactId>
+                        <version>${kotlin.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <artifactId>kotlin-maven-noarg</artifactId>
                         <version>${kotlin.version}</version>
                     </dependency>
                 </dependencies>
