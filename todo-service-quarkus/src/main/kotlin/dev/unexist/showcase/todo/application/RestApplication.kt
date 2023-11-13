@@ -13,5 +13,4 @@ package dev.unexist.showcase.todo.application;
 
 import jakarta.ws.rs.core.Application
 
-class RestApplication : Application() {
-}
+class RestApplication : Application()

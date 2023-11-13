@@ -11,6 +11,9 @@
 
 package dev.unexist.showcase.todo.domain.todo;
 
+import dev.unexist.showcase.todo.infrastructure.NoArg
+
+@NoArg
 data class Todo(
     var id: Int = 0,
     override var title: String = "",

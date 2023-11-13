@@ -39,7 +39,7 @@ import java.net.URI
 import java.util.Optional
 
 @Path("/todo")
-class TodoResource(@field:Inject var todoService: TodoService) {
+class TodoResource(@Inject var todoService: TodoService) {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)

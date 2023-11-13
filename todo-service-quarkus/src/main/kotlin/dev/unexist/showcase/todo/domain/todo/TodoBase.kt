@@ -12,25 +12,10 @@
 package dev.unexist.showcase.todo.domain.todo;
 
 import com.fasterxml.jackson.annotation.JsonInclude
-import java.util.Objects
+import dev.unexist.showcase.todo.infrastructure.NoArg
 
+@NoArg
 @JsonInclude(JsonInclude.Include.NON_NULL)
 open class TodoBase(open var title: String, open var description: String,
                     open var done: Boolean, open var dueDate: DueDate?) {
-
-    /**
-     * Set due date of the entry
-     *
-     * @param  dueDate  Due date of the entry
-     **/
-
-    fun setDueDate(dueDate: DueDate) {
-        Objects.requireNonNull(dueDate, "DueDate cannot be null");
-
-        this.dueDate = dueDate;
-
-        if (null != dueDate.start && null != dueDate.due) {
-            this.done = dueDate.start.isBefore(dueDate.due);
-        }
-    }
 }

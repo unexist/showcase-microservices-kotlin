@@ -12,11 +12,12 @@
 package dev.unexist.showcase.todo.domain.todo;
 
 import jakarta.enterprise.context.ApplicationScoped
+import jakarta.enterprise.inject.Default
 import jakarta.inject.Inject
 import java.util.Optional
 
 @ApplicationScoped
-class TodoService(@field:Inject var todoRepository: TodoRepository) {
+class TodoService(@Inject @field: Default var todoRepository: TodoRepository) {
 
     /**
      * Create new {@link Todo} entry and store it in repository
