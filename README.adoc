@@ -14,3 +14,4 @@ Small implementation based on Ktor, 3-Layer and DI (Dependency Inversion + Depen
 - https://www.consul.io/
 - https://github.com/mlvandijk/kukumber-skeleton
 - https://cucumber.io/docs/installation/kotlin/
+- https://kotlinlang.org/docs/no-arg-plugin.html#maven
