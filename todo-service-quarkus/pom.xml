@@ -14,11 +14,10 @@
     </parent>
 
     <properties>
-        <slf4j.version>1.7.36</slf4j.version>
         <quarkus.version>3.5.1</quarkus.version>
-        <kotlin.version>1.9.20</kotlin.version>
         <rest-assured.version>5.3.0</rest-assured.version>
         <assertj-core.version>3.24.2</assertj-core.version>
+        <cucumber.version>2.3.1</cucumber.version>
     </properties>
 
     <dependencyManagement>
@@ -110,6 +109,19 @@
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-test</artifactId>
             <version>${kotlin.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java8</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
