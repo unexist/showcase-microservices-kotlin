@@ -14,7 +14,7 @@ package dev.unexist.showcase.todo.domain
 import cucumber.api.PendingException
 import cucumber.api.java8.En
 
-var todo: Todo? = null
+lateinit var todo: Todo
 
 class TodoSteps : En {
     init {
@@ -23,11 +23,11 @@ class TodoSteps : En {
         }
 
         When("^its title is {word}$") { title: String ->
-            todo!!.title = title
+            todo.title = title
         }
 
         And("its description is {word}") { description: String ->
-            todo!!.description = description
+            todo.description = description
         }
 
         Then("^its id should be {int}$") { _: Int ->
