@@ -16,7 +16,7 @@ import io.restassured.RestAssured.given
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
-class TodoResourceTest {
+class TodoResourceFixture {
 
     @Test
     fun shouldGetEmptyResult() {
