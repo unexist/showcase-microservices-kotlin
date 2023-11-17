@@ -11,19 +11,23 @@
 
 package dev.unexist.showcase.todo.domain
 
-import cucumber.api.PendingException
-import cucumber.api.java8.En
 import dev.unexist.showcase.todo.domain.todo.Todo
+import io.cucumber.java8.En
+import io.cucumber.java8.PendingException
+import io.quarkus.arc.Unremovable
+import jakarta.enterprise.context.ApplicationScoped
 
 lateinit var todo: Todo
 
+@ApplicationScoped
+@Unremovable
 class TodoSteps : En {
     init {
-        Given("^I create a todo$") {
+        Given("I create a todo") {
             todo = Todo()
         }
 
-        When("^its title is {word}$") { title: String ->
+        When("its title is {word}") { title: String ->
             todo.title = title
         }
 
@@ -31,7 +35,7 @@ class TodoSteps : En {
             todo.description = description
         }
 
-        Then("^its id should be {int}$") { _: Int ->
+        Then("its id should be {int}") { _: Int ->
             throw PendingException("Not implemented yet")
         }
     }
