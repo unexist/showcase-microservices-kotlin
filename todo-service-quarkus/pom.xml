@@ -20,6 +20,7 @@
         <cucumber.version>7.14.0</cucumber.version>
         <junit5.version>5.7.0</junit5.version>
         <junit-platform-suite.version>1.10.1</junit-platform-suite.version>
+        <junit-vintage-engine.version>5.9.0</junit-vintage-engine.version>
     </properties>
 
     <dependencyManagement>
@@ -133,6 +134,13 @@
              <version>${junit5.version}</version>
              <scope>test</scope>
          </dependency>
+        <!-- Required to run cucumber tests in JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>${junit-vintage-engine.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
