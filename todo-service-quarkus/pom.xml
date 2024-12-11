@@ -17,7 +17,7 @@
         <quarkus.version>3.5.2</quarkus.version>
         <rest-assured.version>5.3.0</rest-assured.version>
         <assertj-core.version>3.24.2</assertj-core.version>
-        <cucumber.version>7.14.0</cucumber.version>
+        <cucumber.version>7.20.1</cucumber.version>
         <junit5.version>5.7.0</junit5.version>
         <junit-platform-suite.version>1.10.1</junit-platform-suite.version>
         <junit-vintage-engine.version>5.9.0</junit-vintage-engine.version>
@@ -139,6 +139,12 @@
             <groupId>org.junit.vintage</groupId>
             <artifactId>junit-vintage-engine</artifactId>
             <version>${junit-vintage-engine.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.8.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
