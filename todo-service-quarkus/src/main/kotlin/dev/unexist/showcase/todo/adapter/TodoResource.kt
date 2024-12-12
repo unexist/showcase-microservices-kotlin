@@ -61,7 +61,7 @@ class TodoResource(@Inject var todoService: TodoService) {
                     .path(todo.get().id.toString())
                     .build();
 
-            response = Response.created(uri);
+            response = Response.created(uri).entity(todo.get())
         } else {
             response = Response.status(Response.Status.NOT_ACCEPTABLE);
         }
