@@ -13,6 +13,7 @@ package dev.unexist.showcase.todo.adapter
 
 import dev.unexist.showcase.todo.domain.Todo
 import dev.unexist.showcase.todo.infrastructure.TodoListRepository
+import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.jackson.jackson
 import io.ktor.server.application.Application
 import io.ktor.server.application.call
@@ -82,7 +83,7 @@ fun Application.main() {
             todo.id = TodoListRepository.getAll().size + 1
 
             TodoListRepository.add(todo)
-            call.respond(message = todo)
+            call.respond(message = todo, status = HttpStatusCode.Created)
         }
     }
 }
