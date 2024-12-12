@@ -1,5 +1,4 @@
  .DEFAULT_GOAL := build
- .ONESHELL:
 
  PODNAME := showcase
  PG_USER := postgres
@@ -24,11 +23,24 @@ todo:
 list:
 	@curl -X 'GET' 'http://localhost:8080/todo' -H 'accept: */*' | jq .
 
-build:
+hurl:
+	@hurl ./todo.hurl
+
+# Build & run
+build-all:
 	mvn package
 
-run:
-	java -jar target/todo-service-ktor-0.1-jar-with-dependencies.jar
+build-ktor:
+	mvn package -pl todo-service-ktor
+
+build-quarkus:
+	mvn package -pl todo-service-quarkus
+
+run-ktor:
+	java -jar todo-service-ktor/target/todo-service-ktor-0.1-jar-with-dependencies.jar
+
+run-quarkus:
+	java -jar todo-service-quarkus/target/todo-service-ktor-0.1-jar-with-dependencies.jar
 
 # Podman
 pd-machine-init:
