@@ -1,5 +1,10 @@
 = Showcase for microservices on Kotlin
 
+:hurl: https://hurl.dev
+:curl: https://curl.se/
+:quarkus: https://quarkus.io/
+:ktor: https://ktor.io/
+
 This project holds a showcase for Kotlin related things.
 
 == Modules
@@ -16,18 +21,18 @@ Small implementation based on Ktor, 3-Layer and DI (Dependency Inversion + Depen
 
 [cols="1,3"]
 |===
-| todo | Call curl and create todo entry
-| list | Fetch list of todo entries via curl
-| hurl | Run Hurl test suite
-| build-ktor | Build Ktor application
-| build-quarkus | Build Quarkus application
-| run-ktor | Run Ktor application
-| run-quarkus | Run Quarkus application
+| todo | Call {curl}[curl] and create todo entry
+| list | Fetch list of todo entries via {curl}[curl]
+| hurl | Run {hurl}[Hurl] test suite
+| build-ktor | Build {ktor}[Ktor] application
+| build-quarkus | Build {quarkus}[Quarkus] application
+| run-ktor | Run {ktor}[Ktor] application
+| run-quarkus | Run {quarkus}[Quarkus] application
 |===
 
 == Links
 
-- https://ktor.io/
+- {ktor}
 - https://ktor.io/docs/testing.html
 - https://github.com/oshai/kotlin-logging
 - https://www.consul.io/
@@ -36,4 +41,5 @@ Small implementation based on Ktor, 3-Layer and DI (Dependency Inversion + Depen
 - https://kotlinlang.org/docs/no-arg-plugin.html#maven
 - https://quarkus.io/guides/kotlin
 - https://slumber.lucaspickering.me/
-- https://hurl.dev
+- {hurl}
+- {quarkus}
