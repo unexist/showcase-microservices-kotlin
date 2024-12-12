@@ -24,7 +24,7 @@
         <!-- Versions -->
         <ktor.version>2.3.6</ktor.version>
         <consul-client.version>1.5.3</consul-client.version>
-        <cucumber.version>2.3.1</cucumber.version>
+        <cucumber.version>7.2.1</cucumber.version>
     </properties>
 
     <dependencies>
@@ -148,6 +148,9 @@
                     <args>
                         <arg>-Xcoroutines=enable</arg>
                     </args>
+                    <sourceDirs>
+                        <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
+                    </sourceDirs>
                 </configuration>
             </plugin>
 
