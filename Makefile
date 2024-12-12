@@ -40,7 +40,7 @@ run-ktor:
 	java -jar todo-service-ktor/target/todo-service-ktor-0.1-jar-with-dependencies.jar
 
 run-quarkus:
-	java -jar todo-service-quarkus/target/todo-service-ktor-0.1-jar-with-dependencies.jar
+	java -jar todo-service-quarkus/target/quarkus-app/quarkus-run.jar
 
 # Podman
 pd-machine-init:
