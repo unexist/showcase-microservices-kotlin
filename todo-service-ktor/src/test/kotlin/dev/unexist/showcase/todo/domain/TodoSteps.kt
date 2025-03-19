@@ -1,5 +1,5 @@
 /**
- * @package Showcase-Swagger-Asciidoc
+ * @package Showcase-Microservices-Kotlin
  *
  * @file Todo Cucumber steps
  * @copyright 2023-present Christoph Kappel <christoph@unexist.dev>

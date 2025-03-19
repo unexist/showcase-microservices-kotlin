@@ -1,5 +1,5 @@
 /**
- * @package Showcase-Swagger-Asciidoc
+ * @package Showcase-Microservices-Kotlin
  *
  * @file Todo list repository
  * @copyright 2025-present Christoph Kappel <christoph@unexist.dev>
